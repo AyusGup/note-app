@@ -93,27 +93,32 @@ This collection stores user-specific data and uses the Firebase Authentication U
 ```json
 {
   "name": "Ayush",
-  "email": "testuser@example.com",
+  "email": "test@example.com",
   "password": "Test123",
   "phoneNumber": "+919850094480"
 }
 ```
+### Response
+![image](https://github.com/user-attachments/assets/df1151a1-bbb3-40bc-8ea1-43bca440e831)
+
 ## /userUpdate
 
-### Method: `POST`
+### Method: `PUT`
 
 ### Request Body:
 ```json
 {
-  "name": "Ayush",
-  "email": "testuser@example.com",
-  "password": "Test123",
-  "phoneNumber": "+919850094480"
+    "name": "Ayush Gupta",
+    "userId": "4mOSwDK0Nthdr4xlTGPfGgdprA83",
+    "email": "test@example.com"
 }
 ```
+### Response
+![image](https://github.com/user-attachments/assets/1115c525-426f-428d-b9ff-fd69a4af3851)
+
 ## /userDelete
 
-### Method: `POST`
+### Method: `Delete`
 
 ### Request Body:
 ```json
@@ -121,6 +126,9 @@ This collection stores user-specific data and uses the Firebase Authentication U
   "userId": "EaMa1D4qJOMRVicDwtuylIqmGeq1"
 }
 ```
+### Response
+![image](https://github.com/user-attachments/assets/5e9736f8-81a1-451d-9a39-24ccfc93f6d2)
+
 ## /userInfo
 
 ### Method: `GET`
@@ -129,6 +137,9 @@ This collection stores user-specific data and uses the Firebase Authentication U
 ```
 Authorization: Bearer ID token
 ```
+### Response
+![image](https://github.com/user-attachments/assets/46a1b2e8-acce-4b6d-a186-ad5af6604c0d)
+
 
 ## /getNotes
 
@@ -138,6 +149,8 @@ Authorization: Bearer ID token
 ```
 Authorization: Bearer ID token
 ```
+### Response
+![image](https://github.com/user-attachments/assets/fcd95b14-44db-47da-9bcc-a5a6d52668a2)
 
 ## /saveNote
 
@@ -154,6 +167,10 @@ Authorization: Bearer ID token
   "content": "this is note"
 }
 ```
+
+### Response
+![image](https://github.com/user-attachments/assets/9be6c6c8-2354-49af-ab5b-12324e05a3f5)
+
 
 
 
