@@ -51,6 +51,7 @@ This collection stores user-specific data and uses the Firebase Authentication U
   "createdAt": "2024-11-18T18:22:12.018Z",
   "updatedAt": "2024-11-18T18:22:12.018Z"
 }
+```
 
 **Collection Name**: `notes`
 
@@ -69,15 +70,90 @@ This collection stores user-specific data and uses the Firebase Authentication U
   "content": "This is the content of the note2",
   "timestamp": "2024-11-18T11:01:04.239Z"
 }
+```
 
 ## Relationships
 ### User and Notes:
-1. Each note document is associated with a user via the userId field.
-2. The userId is obtained from Firebase Authentication's UID.
+- Each note document is associated with a user via the userId field.
+-  The userId is obtained from Firebase Authentication's UID.
 
 ## Required Index:
 ### Collection: notes
 ### Fields:
-userId (Ascending)
-timestamp (Descending)
+- userId (Ascending)
+- timestamp (Descending)
+
+# API Documentation
+
+## /register
+
+### Method: `POST`
+
+### Request Body:
+```json
+{
+  "name": "Ayush",
+  "email": "testuser@example.com",
+  "password": "Test123",
+  "phoneNumber": "+919850094480"
+}
+```
+## /userUpdate
+
+### Method: `POST`
+
+### Request Body:
+```json
+{
+  "name": "Ayush",
+  "email": "testuser@example.com",
+  "password": "Test123",
+  "phoneNumber": "+919850094480"
+}
+```
+## /userDelete
+
+### Method: `POST`
+
+### Request Body:
+```json
+{
+  "userId": "EaMa1D4qJOMRVicDwtuylIqmGeq1"
+}
+```
+## /userInfo
+
+### Method: `GET`
+
+### Headers:
+```
+Authorization: Bearer ID token
+```
+
+## /getNotes
+
+### Method: `GET`
+
+### Headers:
+```
+Authorization: Bearer ID token
+```
+
+## /saveNote
+
+### Method: `POST`
+
+### Headers:
+```
+Authorization: Bearer ID token
+```
+### Body: 
+```json
+{
+  "title": "notes",
+  "content": "this is note"
+}
+```
+
+
 
