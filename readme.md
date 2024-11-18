@@ -51,6 +51,7 @@ This collection stores user-specific data and uses the Firebase Authentication U
   "createdAt": "2024-11-18T18:22:12.018Z",
   "updatedAt": "2024-11-18T18:22:12.018Z"
 }
+```
 
 **Collection Name**: `notes`
 
@@ -69,15 +70,107 @@ This collection stores user-specific data and uses the Firebase Authentication U
   "content": "This is the content of the note2",
   "timestamp": "2024-11-18T11:01:04.239Z"
 }
+```
 
 ## Relationships
 ### User and Notes:
-1. Each note document is associated with a user via the userId field.
-2. The userId is obtained from Firebase Authentication's UID.
+- Each note document is associated with a user via the userId field.
+-  The userId is obtained from Firebase Authentication's UID.
 
 ## Required Index:
 ### Collection: notes
 ### Fields:
-userId (Ascending)
-timestamp (Descending)
+- userId (Ascending)
+- timestamp (Descending)
+
+# API Documentation
+
+## /register
+
+### Method: `POST`
+
+### Request Body:
+```json
+{
+  "name": "Ayush",
+  "email": "test@example.com",
+  "password": "Test123",
+  "phoneNumber": "+919850094480"
+}
+```
+### Response
+![image](https://github.com/user-attachments/assets/df1151a1-bbb3-40bc-8ea1-43bca440e831)
+
+## /userUpdate
+
+### Method: `PUT`
+
+### Request Body:
+```json
+{
+    "name": "Ayush Gupta",
+    "userId": "4mOSwDK0Nthdr4xlTGPfGgdprA83",
+    "email": "test@example.com"
+}
+```
+### Response
+![image](https://github.com/user-attachments/assets/1115c525-426f-428d-b9ff-fd69a4af3851)
+
+## /userDelete
+
+### Method: `Delete`
+
+### Request Body:
+```json
+{
+  "userId": "EaMa1D4qJOMRVicDwtuylIqmGeq1"
+}
+```
+### Response
+![image](https://github.com/user-attachments/assets/5e9736f8-81a1-451d-9a39-24ccfc93f6d2)
+
+## /userInfo
+
+### Method: `GET`
+
+### Headers:
+```
+Authorization: Bearer ID token
+```
+### Response
+![image](https://github.com/user-attachments/assets/46a1b2e8-acce-4b6d-a186-ad5af6604c0d)
+
+
+## /getNotes
+
+### Method: `GET`
+
+### Headers:
+```
+Authorization: Bearer ID token
+```
+### Response
+![image](https://github.com/user-attachments/assets/fcd95b14-44db-47da-9bcc-a5a6d52668a2)
+
+## /saveNote
+
+### Method: `POST`
+
+### Headers:
+```
+Authorization: Bearer ID token
+```
+### Body: 
+```json
+{
+  "title": "notes",
+  "content": "this is note"
+}
+```
+
+### Response
+![image](https://github.com/user-attachments/assets/9be6c6c8-2354-49af-ab5b-12324e05a3f5)
+
+
+
 
