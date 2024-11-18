@@ -18,7 +18,7 @@ app.use(express.json()); // Parse JSON request bodies
 
 app.post('/register', registerUser);
 app.get('/secure', authenticateUser, verifyUser);
-app.get('/userInfo', getUserInfo);
+app.get('/userInfo', authenticateUser, getUserInfo);
 app.put('/userUpdate', updateUserInfo);
 app.delete('/userDelete', deleteUser);
 app.get('/getNotes', authenticateUser, getNotes);

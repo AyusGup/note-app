@@ -1,18 +1,11 @@
 const admin = require('firebase-admin');
 
 async function getUserInfo(req: any, res: any) {
-  const token = req.headers.authorization?.split(' ')[1];  // Extract token from Authorization header
-
-  if (!token) {
-    return res.status(401).json({ error: 'Authorization token missing' });
-  }
+  const userId = req.user.uid;
 
   try {
-    // Verify the custom token
-    const decodedToken = await admin.auth().verifyIdToken(token);
-    
     // Retrieve the user info from Firestore
-    const userRef = admin.firestore().collection('users').doc(decodedToken.uid);
+    const userRef = admin.firestore().collection('users').doc(userId);
     const userDoc = await userRef.get();
 
     if (!userDoc.exists) {
@@ -63,6 +56,7 @@ async function updateUserInfo(req: any, res: any) {
     if (name) updateData.name = name;
     if (email) updateData.email = email;
     if (phoneNumber) updateData.phoneNumber = phoneNumber;
+    updateData.updatedAt = new Date().toISOString();
 
     // Update Firestore with new data
     await userRef.update(updateData);
